@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawfect Bakes - Recipes</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Unified Fixed Header -->
+  <header>
+    <nav>
+      <ul class="nav-left">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="contact.html">About Us</a></li>
+      </ul>
+      <button id="search-btn">Search</button>
+    </nav>
+  </header>
+
+  <!-- Page Title & Description (Centered) -->
+  <main class="recipes-layout">
+    <div class="recipes-header">
+      <h1>Recipes</h1>
+      <p>Discover delicious dog-friendly baking recipes!</p>
+    </div>
+
+    <!-- Selected Filters Display -->
+    <div id="selected-filters">Search: None / Category: All / Without: None / Use: Any</div>
+
+    <!-- Recipe Grid -->
+    <section class="recipe-grid" id="recipe-list">
+      <!-- Recipes will be dynamically loaded here based on search & filters -->
+    </section>
+
+    <!-- Show More Button -->
+    <button id="show-more" style="display: none;">Show More</button>
+  </main>
+</body>
+</html>

@@ -1,0 +1,319 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+}
+
+/* Unified Header */
+header {
+  background: white;
+  padding: 15px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+#search-btn {
+  background: black;
+  color: white;
+  padding: 8px 12px;
+  margin-left: auto;
+}
+
+/* Home Page Layout */
+.home-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+.home-text {
+  width: 50%;
+  text-align: left;
+}
+
+.home-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btn-outline {
+  border: 2px solid black;
+  color: black;
+  padding: 8px 15px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.home-image {
+  width: 40%;
+}
+
+.home-image img {
+  max-width: 50%;
+  border-radius: 10px;
+}
+
+/* Search & Filter Popup */
+#search-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 400px;
+  text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Ensure filter options are properly aligned */
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Background overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+/* Recipes Page Title and Description */
+.recipes-header {
+  text-align: center;
+  padding: 100px 0 40px; /* Adjusted to match homepage position */
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Match homepage title size */
+.recipes-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Center-align description */
+.recipes-header p {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Center-align and style filter description */
+#selected-filters {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px auto;
+  padding: 10px 0;
+  max-width: 800px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+/* Unify homepage and recipes page description text color */
+.home-text p, .recipes-header p {
+  font-size: 16px;
+  color: #666; /* Unified gray text color */
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Adjust filter description text weights */
+#selected-filters {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin: 20px auto;
+  padding: 10px 0;
+  max-width: 800px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+#selected-filters strong {
+  font-weight: bold;
+}
+
+#selected-filters span {
+  font-weight: normal; /* Lighter text for descriptions */
+}
+
+
+/* Align homepage description text to the left */
+.home-text p {
+  text-align: left;
+}
+
+/* Adjust Recipes Page Title and Description to match homepage */
+.recipes-header {
+  text-align: left;
+  padding: 100px 20px 40px; /* Adjusted to match homepage positioning */
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Match homepage title size */
+.recipes-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Align description */
+.recipes-header p {
+  font-size: 16px;
+  color: #666;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Ensure filter description applies bold styling correctly */
+#selected-filters {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin: 20px auto;
+  padding: 10px 0;
+  max-width: 800px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Keep "Search, Category, Without, Use" bold while making other text lighter */
+#selected-filters strong {
+  font-weight: bold;
+}
+
+#selected-filters span {
+  font-weight: normal; /* Ensure lighter text for descriptions */
+}
+
+/* Ensure recipes page title and description are centered */
+.recipes-header {
+  text-align: center;
+  padding: 100px 20px 40px; /* Adjusted to match homepage positioning */
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Center-align description */
+.recipes-header p {
+  text-align: center;
+}
+
+
+/* Adjust filter results section for minimal spacing */
+#selected-filters {
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  margin: 5px auto 2px; /* Significantly reduced gap to bring it closer to the description */
+  padding: 10px 0;
+  max-width: 800px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+#search-btn:active {
+  transform: none !important;  /* Prevent any scaling effect */
+  box-shadow: none !important; /* Remove shadow change when clicked */
+  background: black !important; /* Keep background color unchanged */
+}
+
+.home-title-image {
+  max-width: 50%; /* Reduce image size to 50% */
+  height: auto;   /* Maintain aspect ratio */
+}
+
+#search-btn {
+  border: none;         /* Remove any default border */
+  outline: none;        /* Remove focus outline */
+  box-shadow: none;     /* Remove any shadow */
+  background: black;    /* Ensure background stays the same */
+}
+
+#search-btn:active {
+  transform: none !important;  /* Prevent any scaling effect */
+  box-shadow: none !important; /* Remove shadow change when clicked */
+  background: black !important; /* Keep background color unchanged */
+  border: none !important;      /* Ensure no border effect */
+  outline: none !important;     /* Ensure no outline effect */
+}
