@@ -1,319 +1,260 @@
-/* General Styles */
+/* 기본 설정 */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f8f8f8;
+  background-color: #FDF1E6;
+  color: #4B1E0E;
+  font-family: 'Merriweather', serif;
 }
 
-/* Unified Header */
+/* 상단 헤더 및 네비게이션 */
 header {
-  background: white;
-  padding: 15px 20px;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 26px;
+  font-weight: bold;
+  color: #D72638;
 }
 
 .nav-left {
-  display: flex;
-  gap: 20px;
-}
-
-nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-nav ul li {
-  margin-right: 20px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  font-size: 16px;
+.nav-left li a,
+.nav-left li button {
+  font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  color: black;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4B1E0E;
+  text-decoration: none;
 }
 
 #search-btn {
-  background: black;
+  background-color: #D72638;
   color: white;
-  padding: 8px 12px;
-  margin-left: auto;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-/* Home Page Layout */
+/* 홈 페이지 레이아웃 */
 .home-layout {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
-  padding: 100px 20px;
-}
-
-.home-text {
-  width: 50%;
-  text-align: left;
-}
-
-.home-buttons {
-  margin-top: 20px;
-}
-
-.btn {
-  background: black;
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.btn-outline {
-  border: 2px solid black;
-  color: black;
-  padding: 8px 15px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.home-image {
-  width: 40%;
-}
-
-.home-image img {
-  max-width: 50%;
-  border-radius: 10px;
-}
-
-/* Search & Filter Popup */
-#search-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  width: 400px;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 20px 40px;
   text-align: center;
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
-/* Ensure filter options are properly aligned */
-.filter-options {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+.home-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
 
-.filter-options label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.home-text .brand {
+  color: #D72638;
 }
 
-/* Background overlay */
+.home-text p {
+  font-size: 20px;
+  color: #2A1F1E;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+
+/* 기본 버튼 */
+.btn-primary {
+  background-color: #D72638;
+  color: white;
+  padding: 16px 32px;
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #B71E2B;
+}
+
+/* 팝업 배경 */
 #overlay {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 999;
-}
-/* Recipes Page Title and Description */
-.recipes-header {
-  text-align: center;
-  padding: 100px 0 40px; /* Adjusted to match homepage position */
-  background: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  z-index: 98;
 }
 
-/* Match homepage title size */
-.recipes-header h1 {
-  font-size: 36px;
+/* 검색 팝업 */
+#search-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  display: none;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#search-popup h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: #4B1E0E;
+  margin-bottom: 20px;
 }
 
-/* Center-align description */
-.recipes-header p {
+#search-input {
+  width: 100%;
+  padding: 10px 14px;
   font-size: 16px;
-  color: #666;
-  max-width: 600px;
-  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
-/* Center-align and style filter description */
-#selected-filters {
-  text-align: center;
+#search-input::placeholder {
+  color: #aaa;
+}
+
+#apply-search {
+  background-color: #D72638;
+  color: white;
+  font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-weight: bold;
-  color: #333;
-  margin: 20px auto;
-  padding: 10px 0;
-  max-width: 800px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
+#apply-search:hover {
+  background-color: #b71e2b;
+}
 
+/* 레시피 카드 목록 */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* Unify homepage and recipes page description text color */
-.home-text p, .recipes-header p {
-  font-size: 16px;
-  color: #666; /* Unified gray text color */
-  max-width: 600px;
+/* 레시피 카드 */
+.recipe-item {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-align: center;
 }
 
-/* Adjust filter description text weights */
-#selected-filters {
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-  margin: 20px auto;
-  padding: 10px 0;
-  max-width: 800px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+.recipe-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-#selected-filters strong {
+.recipe-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.recipe-item h3 {
+  font-size: 20px;
   font-weight: bold;
+  padding: 16px;
+  font-family: 'Playfair Display', serif;
+  color: #4B1E0E;
+  margin: 0;
 }
 
-#selected-filters span {
-  font-weight: normal; /* Lighter text for descriptions */
+.recipe-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
 }
 
-
-/* Align homepage description text to the left */
-.home-text p {
-  text-align: left;
+/* 반응형 레이아웃 */
+@media (max-width: 1199px) {
+  .recipe-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Adjust Recipes Page Title and Description to match homepage */
-.recipes-header {
-  text-align: left;
-  padding: 100px 20px 40px; /* Adjusted to match homepage positioning */
-  background: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: 1100px;
-  margin: auto;
+@media (max-width: 767px) {
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-item img {
+    height: 160px;
+  }
 }
 
-/* Match homepage title size */
-.recipes-header h1 {
-  font-size: 36px;
+/* 버튼 아웃라인 스타일 */
+.btn-outline {
+  background-color: transparent;
+  color: #D72638;
+  border: 2px solid #D72638;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  margin-bottom: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
 }
 
-/* Align description */
-.recipes-header p {
-  font-size: 16px;
-  color: #666;
-  max-width: 600px;
-  text-align: left;
+.btn-outline:hover {
+  background-color: #D72638;
+  color: white;
 }
 
-/* Ensure filter description applies bold styling correctly */
-#selected-filters {
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-  margin: 20px auto;
-  padding: 10px 0;
-  max-width: 800px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Keep "Search, Category, Without, Use" bold while making other text lighter */
-#selected-filters strong {
-  font-weight: bold;
-}
-
-#selected-filters span {
-  font-weight: normal; /* Ensure lighter text for descriptions */
-}
-
-/* Ensure recipes page title and description are centered */
-.recipes-header {
-  text-align: center;
-  padding: 100px 20px 40px; /* Adjusted to match homepage positioning */
-  background: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Center-align description */
-.recipes-header p {
-  text-align: center;
-}
-
-
-/* Adjust filter results section for minimal spacing */
-#selected-filters {
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-  margin: 5px auto 2px; /* Significantly reduced gap to bring it closer to the description */
-  padding: 10px 0;
-  max-width: 800px;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-
-#search-btn:active {
-  transform: none !important;  /* Prevent any scaling effect */
-  box-shadow: none !important; /* Remove shadow change when clicked */
-  background: black !important; /* Keep background color unchanged */
-}
-
-.home-title-image {
-  max-width: 50%; /* Reduce image size to 50% */
-  height: auto;   /* Maintain aspect ratio */
-}
-
-#search-btn {
-  border: none;         /* Remove any default border */
-  outline: none;        /* Remove focus outline */
-  box-shadow: none;     /* Remove any shadow */
-  background: black;    /* Ensure background stays the same */
-}
-
-#search-btn:active {
-  transform: none !important;  /* Prevent any scaling effect */
-  box-shadow: none !important; /* Remove shadow change when clicked */
-  background: black !important; /* Keep background color unchanged */
-  border: none !important;      /* Ensure no border effect */
-  outline: none !important;     /* Ensure no outline effect */
+.recipes-layout {
+  padding-top: 100px;
 }

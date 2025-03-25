@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pawfect Bakes - Recipes</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Unified Fixed Header -->
+  <!-- 헤더 -->
   <header>
     <nav>
+      <div class="logo">PAWFECT BAKES</div>
       <ul class="nav-left">
         <li><a href="index.html">Home</a></li>
         <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="contact.html">About Us</a></li>
+        <li><button id="search-btn">Search</button></li>
       </ul>
-      <button id="search-btn">Search</button>
     </nav>
   </header>
 
-  <!-- Page Title & Description (Centered) -->
   <main class="recipes-layout">
     <div class="recipes-header">
       <h1>Recipes</h1>
       <p>Discover delicious dog-friendly baking recipes!</p>
     </div>
 
-    <!-- Selected Filters Display -->
-    <div id="selected-filters">Search: None / Category: All / Without: None / Use: Any</div>
-
-    <!-- Recipe Grid -->
-    <section class="recipe-grid" id="recipe-list">
-      <!-- Recipes will be dynamically loaded here based on search & filters -->
-    </section>
-
-    <!-- Show More Button -->
-    <button id="show-more" style="display: none;">Show More</button>
+    <!-- 레시피 카드들을 담을 영역 -->
+    <section class="recipe-grid" id="recipe-list"></section>
   </main>
+
+  <!-- 검색 팝업 -->
+  <div id="overlay"></div>
+  <div id="search-popup">
+    <h3>Search Recipes</h3>
+    <input type="text" id="search-input" placeholder="Type to search..." />
+    <button id="apply-search">Search</button>
+  </div>
 </body>
 </html>

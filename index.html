@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pawfect Bakes - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Unified Fixed Header -->
+  <!-- 헤더 -->
   <header>
     <nav>
+      <div class="logo">PAWFECT BAKES</div>
       <ul class="nav-left">
         <li><a href="index.html">Home</a></li>
         <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="contact.html">About Us</a></li>
+        <li><button id="search-btn">Search</button></li>
       </ul>
-      <button id="search-btn">Search</button>
     </nav>
   </header>
 
-  <!-- Home Page Layout -->
+  <!-- 홈페이지 -->
   <main class="home-layout">
     <div class="home-content">
       <div class="home-text">
-        <h1>Welcome to Pawfect Bakes for dogs</h1>
-        <p>At Pawfect Bakes, we are dedicated to providing the finest baking recipes for your furry friends. Our mission is to make it easy for you to create delicious and healthy treats that your dogs will love.</p>
-        <div class="home-buttons">
-          <a href="recipes.html" class="btn">Get Started</a>
-          <a href="faq.html" class="btn-outline">Learn More</a>
-        </div>
-      </div>
-      <div class="home-image-container">
-        <img src="images/dog.jpg" alt="Cute dog" class="home-title-image">
+        <h1>Welcome to<br><span class="brand">PAWFECT BAKES for dogs!</span></h1>
+        <p>At Pawfect Bakes, we are dedicated to providing the finest baking recipes for your furry friends. 
+        Our mission is to make it easy for you to create delicious and healthy treats that your dogs will love.</p>
+        <a href="recipes.html" class="btn-primary">Get Started</a>
       </div>
     </div>
   </main>
 
-  <!-- Search & Filter Popup -->
+  <!-- 서치팝업 -->
   <div id="overlay"></div>
   <div id="search-popup">
-    <h3>Search & Filter Recipes</h3>
-    <input type="text" id="search-input" placeholder="Type to search...">
-    <h4>Category</h4>
-    <div class="filter-options">
-      <label><input type="checkbox" class="filter-category" value="Bread"> Bread</label>
-      <label><input type="checkbox" class="filter-category" value="Cookie"> Cookie</label>
-      <label><input type="checkbox" class="filter-category" value="Frozen"> Frozen</label>
-      <label><input type="checkbox" class="filter-category" value="All" checked> All</label>
-    </div>
-    <h4>Exclude Ingredients</h4>
-    <div class="filter-options scrollable">
-      <label><input type="checkbox" class="filter-without" value="Whole wheat flour"> Whole wheat flour</label>
-      <label><input type="checkbox" class="filter-without" value="Oat flours"> Oat flours</label>
-      <label><input type="checkbox" class="filter-without" value="Greek yogurt"> Greek yogurt</label>
-      <label><input type="checkbox" class="filter-without" value="Cottage cheese"> Cottage cheese</label>
-      <label><input type="checkbox" class="filter-without" value="Low-fat cheese"> Low-fat cheese</label>
-      <label><input type="checkbox" class="filter-without" value="Eggs"> Eggs</label>
-      <label><input type="checkbox" class="filter-without" value="Peanut butter"> Peanut butter</label>
-      <label><input type="checkbox" class="filter-without" value="Chicken"> Chicken</label>
-      <label><input type="checkbox" class="filter-without" value="Chicken powder"> Chicken powder</label>
-      <label><input type="checkbox" class="filter-without" value="Beef"> Beef</label>
-      <label><input type="checkbox" class="filter-without" value="Soy"> Soy</label>
-      <label><input type="checkbox" class="filter-without" value="Corn"> Corn</label>
-    </div>
-    <h4>Use</h4>
-    <div class="filter-options">
-      <label><input type="checkbox" class="filter-equipment" value="Oven"> Oven</label>
-      <label><input type="checkbox" class="filter-equipment" value="Microwave"> Microwave</label>
-      <label><input type="checkbox" class="filter-equipment" value="Air fryer"> Air fryer</label>
-      <label><input type="checkbox" class="filter-equipment" value="Freezer"> Freezer</label>
-      <label><input type="checkbox" class="filter-equipment" value="All" checked> All</label>
-    </div>
-    <button id="apply-search">Apply & Close</button>
+    <h3>Search Recipes</h3>
+    <input type="text" id="search-input" placeholder="Type to search..." />
+    <button id="apply-search">Search</button>
   </div>
 </body>
 </html>
