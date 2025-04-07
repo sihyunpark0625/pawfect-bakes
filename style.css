@@ -1,62 +1,81 @@
-/* 기본 설정 */
+/* === 기본 스타일 === */
 body {
   margin: 0;
   padding: 0;
   background-color: #FDF1E6;
   color: #4B1E0E;
   font-family: 'Merriweather', serif;
+  padding-top: 80px; /* 추가된 부분 - 헤더 높이만큼 페이지 아래로 내림 */
 }
 
-/* 상단 헤더 및 네비게이션 */
+
+/* === 헤더 전체 스타일 (최종본) === */
 header {
   position: fixed;
   top: 0;
-  width: 100%;
-  background-color: #FFFFFF;
+  left: 0;
+  right: 0;
+  height: 65px; /* 높이 줄임 */
+  background-color: #FFFFFF; /* 배경 필수! */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 16px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 100;
+  padding-right: 15px; /* 스크롤바 대응 */
+  box-sizing: border-box;
 }
 
+.header-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* 로고 중앙정렬 */
 .logo {
   font-family: 'Pacifico', cursive;
   font-size: 26px;
-  font-weight: bold;
   color: #D72638;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+/* 왼쪽 메뉴 (Home, Recipes) */
 .nav-left {
-  list-style: none;
   display: flex;
   gap: 24px;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-left li a,
-.nav-left li button {
+.nav-left a {
   font-family: 'Nunito', sans-serif;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #4B1E0E;
+  color: #D72638;
   text-decoration: none;
 }
 
-#search-btn {
-  background-color: #D72638;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: bold;
+/* 오른쪽 Search 버튼 */
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-/* 홈 페이지 레이아웃 */
+#search-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #D72638;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+
+/* === 메인 (홈) === */
 .home-layout {
   display: flex;
   align-items: center;
@@ -64,6 +83,7 @@ header {
   min-height: 100vh;
   padding: 120px 20px 40px;
   text-align: center;
+  position: relative;
 }
 
 .home-text h1 {
@@ -84,12 +104,12 @@ header {
   margin: 0 auto 32px;
 }
 
-/* 기본 버튼 */
+/* === 버튼 스타일 === */
 .btn-primary {
   background-color: #D72638;
   color: white;
-  padding: 16px 32px;
-  font-size: 20px;
+  padding: 14px 28px;
+  font-size: 18px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   text-decoration: none;
@@ -101,30 +121,48 @@ header {
   background-color: #B71E2B;
 }
 
-/* 팝업 배경 */
-#overlay {
+/* 아웃라인 버튼 */
+.btn-outline {
+  background-color: transparent;
+  color: #D72638;
+  border: 2px solid #D72638;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #D72638;
+  color: white;
+}
+
+/* === 팝업 및 오버레이 === */
+#overlay, #search-popup {
   position: fixed;
+  display: none;
+  z-index: 200;
+}
+
+#overlay {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.4);
-  display: none;
-  z-index: 98;
 }
 
-/* 검색 팝업 */
 #search-popup {
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #FFFFFF;
-  padding: 32px 24px;
+  padding: 32px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  z-index: 99;
-  display: none;
   width: 100%;
   max-width: 400px;
   text-align: center;
@@ -133,25 +171,19 @@ header {
 #search-popup h3 {
   font-family: 'Playfair Display', serif;
   font-size: 24px;
-  font-weight: bold;
   color: #4B1E0E;
   margin-bottom: 20px;
 }
 
 #search-input {
   width: 100%;
-  padding: 10px 14px;
+  padding: 10px;
   font-size: 16px;
   font-family: 'Nunito', sans-serif;
   border: 1px solid #ddd;
   border-radius: 8px;
-  outline: none;
-  box-sizing: border-box;
   margin-bottom: 20px;
-}
-
-#search-input::placeholder {
-  color: #aaa;
+  box-sizing: border-box;
 }
 
 #apply-search {
@@ -161,100 +193,187 @@ header {
   font-size: 16px;
   font-weight: bold;
   border: none;
-  padding: 10px 24px;
+  padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
 #apply-search:hover {
-  background-color: #b71e2b;
+  background-color: #B71E2B;
 }
 
-/* 레시피 카드 목록 */
+/* === 레시피 그리드 === */
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
   padding: 60px 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 레시피 카드 */
 .recipe-item {
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  text-align: center;
 }
 
 .recipe-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .recipe-item img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  display: block;
 }
 
 .recipe-item h3 {
   font-size: 20px;
-  font-weight: bold;
-  padding: 16px;
   font-family: 'Playfair Display', serif;
   color: #4B1E0E;
-  margin: 0;
+  margin: 16px;
 }
 
 .recipe-item a {
   text-decoration: none;
   color: inherit;
-  display: block;
-  height: 100%;
 }
 
-/* 반응형 레이아웃 */
-@media (max-width: 1199px) {
-  .recipe-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* === 배경 이미지 (메인 페이지 전용) === */
+.bg-fixed-img {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 1300px;
+  max-width: 80vw;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
 }
 
+/* === 반응형 === */
 @media (max-width: 767px) {
   .recipe-grid {
     grid-template-columns: 1fr;
   }
 
-  .recipe-item img {
-    height: 160px;
+  .home-text h1 {
+    font-size: 40px;
+  }
+
+  header .header-container {
+    padding: 0 20px;
   }
 }
+/* 스크롤바 항상 보이게 하는 코드 */
+html {
+  overflow-y: scroll;
+}
 
-/* 버튼 아웃라인 스타일 */
-.btn-outline {
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수평 중앙 정렬 */
+  min-height: calc(100vh - 80px); /* 헤더 높이(80px)를 제외한 화면 높이에 맞춤 */
+  padding-top: 0; /* 기존 패딩을 제거 */
+  text-align: center;
+  box-sizing: border-box;
+}
+.recipes-layout {
+  padding-top: 10px; /* 헤더 높이 고려하여 적당한 패딩 */
+  text-align: center; /* 텍스트 가운데 정렬로 시선 집중 */
+}
+
+.recipes-layout h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px; /* h1과 설명 간격 좁히기 */
+}
+
+.recipes-layout p {
+  font-size: 20px;
+  color: #2A1F1E;
+  margin-bottom: 10px; /* 설명과 카드 간격 적당히 좁히기 */
+}
+/* 레시피 상세 페이지 전체 레이아웃 수정 */
+.recipe-detail {
+  padding: 140px 20px 60px;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* 제목 스타일 */
+.recipe-detail h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #4B1E0E;
+}
+
+/* 설명 텍스트 스타일 */
+.recipe-detail p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  color: #4B1E0E;
+  margin-bottom: 40px;
+}
+
+/* 재료, 설명, 팁 등의 제목 스타일 */
+.recipe-detail h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #4B1E0E;
+  margin-bottom: 20px;
+}
+
+/* 재료와 조리방법 리스트 스타일 제거 및 재정렬 */
+.recipe-detail ul,
+.recipe-detail ol {
+  list-style: none; /* 점 없애기 */
+  padding-left: 0; /* 왼쪽 공백 없애기 */
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  color: #4B1E0E;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* 리스트 항목 사이 간격 */
+.recipe-detail li {
+  margin-bottom: 8px;
+}
+
+/* 팁 텍스트 강조 */
+.recipe-detail .tip {
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+/* 돌아가기 버튼 스타일 */
+.btn-back {
+  display: inline-block;
+  margin-top: 40px;
   background-color: transparent;
   color: #D72638;
   border: 2px solid #D72638;
   padding: 12px 28px;
-  font-size: 18px;
   font-family: 'Nunito', sans-serif;
+  font-size: 18px;
   font-weight: bold;
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
 }
 
-.btn-outline:hover {
+.btn-back:hover {
   background-color: #D72638;
   color: white;
-}
-
-.recipes-layout {
-  padding-top: 100px;
 }
