@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 /* === 기본 스타일 === */
 body {
   margin: 0;
@@ -5,34 +9,29 @@ body {
   background-color: #FDF1E6;
   color: #4B1E0E;
   font-family: 'Merriweather', serif;
-  padding-top: 80px; /* 추가된 부분 - 헤더 높이만큼 페이지 아래로 내림 */
 }
 
-
-/* === 헤더 전체 스타일 (최종본) === */
+/* === 헤더 스타일 === */
 header {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 65px; /* 높이 줄임 */
-  background-color: #FFFFFF; /* 배경 필수! */
+  width: 100%;
+  height: 80px;
+  background-color: #FFFFFF;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 100;
-  padding-right: 15px; /* 스크롤바 대응 */
-  box-sizing: border-box;
 }
 
 .header-container {
-  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
   padding: 0 40px;
   position: relative;
 }
 
-/* 로고 중앙정렬 */
+/* 로고 중앙 정렬 */
 .logo {
   font-family: 'Pacifico', cursive;
   font-size: 26px;
@@ -57,23 +56,17 @@ header {
 }
 
 /* 오른쪽 Search 버튼 */
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
 #search-btn {
   font-family: 'Nunito', sans-serif;
   font-size: 18px;
   font-weight: bold;
   background-color: #D72638;
   color: #FFFFFF;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
   border: none;
 }
-
 
 /* === 메인 (홈) === */
 .home-layout {
@@ -270,110 +263,153 @@ header {
     padding: 0 20px;
   }
 }
-/* 스크롤바 항상 보이게 하는 코드 */
-html {
-  overflow-y: scroll;
-}
 
+/* === 1️⃣ 메인홈페이지 텍스트 정확히 중앙 정렬 === */
 .home-layout {
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* 수직 중앙 정렬 */
-  align-items: center; /* 수평 중앙 정렬 */
-  min-height: calc(100vh - 80px); /* 헤더 높이(80px)를 제외한 화면 높이에 맞춤 */
-  padding-top: 0; /* 기존 패딩을 제거 */
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px); /* 헤더 높이를 빼서 정확히 중앙 */
+  padding: 0 20px;
   text-align: center;
-  box-sizing: border-box;
+  position: relative;
 }
+
+/* === 2️⃣ 레시피 페이지 제목 및 설명 카드 가까이 배치 === */
 .recipes-layout {
-  padding-top: 10px; /* 헤더 높이 고려하여 적당한 패딩 */
-  text-align: center; /* 텍스트 가운데 정렬로 시선 집중 */
+  padding-top: 100px; /* 헤더 고려 여백 */
+  text-align: center;
 }
 
 .recipes-layout h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: bold;
-  margin-bottom: 10px; /* h1과 설명 간격 좁히기 */
-}
-
-.recipes-layout p {
-  font-size: 20px;
-  color: #2A1F1E;
-  margin-bottom: 10px; /* 설명과 카드 간격 적당히 좁히기 */
-}
-/* 레시피 상세 페이지 전체 레이아웃 수정 */
-.recipe-detail {
-  padding: 140px 20px 60px;
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-}
-
-/* 제목 스타일 */
-.recipe-detail h1 {
   font-family: 'Playfair Display', serif;
   font-size: 48px;
   margin-bottom: 10px;
   color: #4B1E0E;
 }
 
-/* 설명 텍스트 스타일 */
-.recipe-detail p {
-  font-family: 'Nunito', sans-serif;
+.recipes-layout p {
   font-size: 20px;
-  color: #4B1E0E;
-  margin-bottom: 40px;
+  color: #2A1F1E;
+  margin-bottom: 30px; /* 카드와의 간격 줄이기 */
 }
 
-/* 재료, 설명, 팁 등의 제목 스타일 */
-.recipe-detail h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  color: #4B1E0E;
+
+
+/* 레시피 상세페이지 텍스트 왼쪽 정렬 및 폰트 스타일 지정 */
+.recipe-detail {
+  padding: 120px 20px 60px;
+  text-align: left;
+  max-width: 800px;
+  margin: auto;
+}
+
+.recipe-detail h1 {
+  font-family: 'Pacifico', cursive;
+  color: #476A6F;
+  font-size: 48px;
   margin-bottom: 20px;
 }
 
-/* 재료와 조리방법 리스트 스타일 제거 및 재정렬 */
-.recipe-detail ul,
-.recipe-detail ol {
-  list-style: none; /* 점 없애기 */
-  padding-left: 0; /* 왼쪽 공백 없애기 */
-  font-family: 'Nunito', sans-serif;
-  font-size: 18px;
+.recipe-detail p {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 20px;
   color: #4B1E0E;
-  line-height: 1.8;
   margin-bottom: 30px;
 }
 
-/* 리스트 항목 사이 간격 */
+.recipe-detail h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #D72638;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.recipe-detail ul,
+.recipe-detail ol {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #4B1E0E;
+  line-height: 1.7;
+  padding-left: 20px;
+}
+
 .recipe-detail li {
   margin-bottom: 8px;
 }
+/* 기존 style.css 맨 마지막에 이렇게 추가하세요! */
 
-/* 팁 텍스트 강조 */
-.recipe-detail .tip {
-  font-weight: bold;
-  margin-top: 30px;
+#suggestions-box {
+  position: absolute;
+  top: 100%; /* 바로 아래 */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0; /* ← 여기 중요! */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 돌아가기 버튼 스타일 */
-.btn-back {
-  display: inline-block;
-  margin-top: 40px;
-  background-color: transparent;
-  color: #D72638;
-  border: 2px solid #D72638;
-  padding: 12px 28px;
-  font-family: 'Nunito', sans-serif;
+}
+#search-popup input {
+  position: relative;
+  z-index: 1;
+}
+/* 🐾 상세 페이지에만 적용되도록 클래스 조정 */
+.recipe-detail .recipes-header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  color: #476A6F;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.recipe-detail .recipes-header p {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
   font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.2s ease-in-out;
+  color: #4B1E0E;
+  margin-bottom: 40px;
+  text-align: left;
 }
 
-.btn-back:hover {
-  background-color: #D72638;
-  color: white;
+.recipe-detail .recipe-content {
+  max-width: 800px;
+  margin: 120px auto 60px;
+  padding: 0 40px;
+  text-align: left;
+}
+
+.recipe-detail .recipe-content h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 26px;
+  color: #D72638;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.recipe-detail .recipe-content p,
+.recipe-detail .recipe-content li {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  color: #2A1F1E;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.recipe-detail .recipe-content ul {
+  padding-left: 20px;
 }
