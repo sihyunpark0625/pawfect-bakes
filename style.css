@@ -298,6 +298,7 @@ header {
 
 /* 레시피 상세페이지 텍스트 왼쪽 정렬 및 폰트 스타일 지정 */
 .recipe-detail {
+  position: relative;
   padding: 120px 20px 60px;
   text-align: left;
   max-width: 800px;
@@ -362,7 +363,6 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-}
 #search-popup input {
   position: relative;
   z-index: 1;
@@ -412,4 +412,53 @@ header {
 
 .recipe-detail .recipe-content ul {
   padding-left: 20px;
+}
+
+.recipes-header {
+  margin-bottom: -50px; /* 기존보다 간격 줄이기 */
+}
+/* 공통 배경 스타일 */
+.recipe-detail::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 1300px;
+  height: auto;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.bg-pumpkin_muffin::before {
+  background-image: url("/pawfect-bakes/images/pumpkin_muffin.jpg");
+}
+.bg-banana_biscuit::before {
+  background-image: url("/pawfect-bakes/images/banana_biscuit.jpg");
+}
+.bg-apple_tart::before {
+  background-image: url("/pawfect-bakes/images/apple_tart.jpg");
+}
+.bg-sweet_potato_cheese::before {
+  background-image: url("/pawfect-bakes/images/sweet_potato_cheese.jpg");
+}
+.bg-carrot_apple_biscuit::before {
+  background-image: url("/pawfect-bakes/images/carrot_apple_biscuit.jpg");
+}
+.bg-blueberry_muffin::before {
+  background-image: url("/pawfect-bakes/images/blueberry_oat_muffin.jpg");
+}
+.bg-cranberry_cookie::before {
+  background-image: url("/pawfect-bakes/images/cranberry_banana_cookie.jpg");
+}
+.bg-mango_coconut::before {
+  background-image: url("/pawfect-bakes/images/mango_coconut_tart.jpg");
+}
+.bg-peanut_cookie::before {
+  background-image: url("/pawfect-bakes/images/peanut_pumpkin_cookie.jpg");
 }
