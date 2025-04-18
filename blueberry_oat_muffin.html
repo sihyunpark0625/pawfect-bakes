@@ -8,11 +8,12 @@
 </head>
 <body>
   <!-- 헤더 -->
- <header>
+<header>
   <nav class="header-container">
     <div class="nav-left">
       <a href="index.html">Home</a>
       <a href="recipes.html">Recipes</a>
+      <a href="about.html">About</a> <!-- ✅ 추가 -->
     </div>
     <div class="logo">PAWFECT BAKES</div>
     <div class="nav-right">
@@ -21,7 +22,8 @@
   </nav>
 </header>
 
-  <main class="recipes-layout recipe-detail bg-blueberry_muffin">
+
+  <main class="recipes-layout recipe-detail bg-blueberry_oat_muffin">
     <div class="recipes-header">
       <h1>Blueberry Oat Muffins</h1>
       <p>Wholesome muffins packed with oats and blueberries – perfect for a fruity snack!</p>
@@ -58,7 +60,22 @@
       <div style="text-align: center; margin: 40px 0;">
         <a href="recipes.html" class="btn-outline">← Back to All Recipes</a>
       </div>
-    </section>
+
+<section class="rating-section">
+  <h2>My Rating ⭐</h2>
+  <div class="stars" id="star-rating">
+    <span data-value="1">☆</span>
+    <span data-value="2">☆</span>
+    <span data-value="3">☆</span>
+    <span data-value="4">☆</span>
+    <span data-value="5">☆</span>
+  </div>
+  <p id="rating-output" style="margin-top: 10px;"></p>
+</section>
+
+
   </main>
+  <script src="script.js"></script>
+
 </body>
 </html>

@@ -417,23 +417,7 @@ header {
 .recipes-header {
   margin-bottom: -50px; /* 기존보다 간격 줄이기 */
 }
-/* 공통 배경 스타일 */
-.recipe-detail::before {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 1300px;
-  height: auto;
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+
 
 .bg-pumpkin_muffin::before {
   background-image: url("/pawfect-bakes/images/pumpkin_muffin.jpg");
@@ -461,4 +445,128 @@ header {
 }
 .bg-peanut_cookie::before {
   background-image: url("/pawfect-bakes/images/peanut_pumpkin_cookie.jpg");
+}
+
+.rating-section {
+  margin: 80px auto;
+  padding: 30px 40px;
+  max-width: 640px;
+  background: #fffaf4;
+  border: 2px solid #f0d5b7;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.stars span {
+  font-size: 38px;
+  cursor: pointer;
+  color: #ccc;
+  transition: transform 0.2s ease;
+}
+
+.stars span.active {
+  color: #D72638;
+  transform: scale(1.2);
+}
+
+.recipes-layout {
+  position: relative;
+  z-index: 0; /* ✅ 텍스트를 위한 상대 기준 */
+}
+
+.recipes-layout::before {
+  content: "";
+  position: fixed; /* ✅ 화면 전체에 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: -1; /* ✅ 완전히 뒤로 보내기 */
+}
+
+
+/* 🖼 개별 레시피 배경 이미지 설정 */
+.bg-apple_tart::before {
+  background-image: url("images/apple_tart.jpg");
+}
+.bg-banana_biscuit::before {
+  background-image: url("images/banana_biscuit.jpg");
+}
+.bg-blueberry_oat_muffin::before {
+  background-image: url("images/blueberry_oat_muffin.jpg");
+}
+.bg-carrot_apple_biscuit::before {
+  background-image: url("images/carrot_apple_biscuit.jpg");
+}
+.bg-cranberry_banana_cookie::before {
+  background-image: url("images/cranberry_banana_cookie.jpg");
+}
+.bg-mango_coconut_tart::before {
+  background-image: url("images/mango_coconut_tart.jpg");
+}
+.bg-peanut_pumpkin_cookie::before {
+  background-image: url("images/peanut_pumpkin_cookie.jpg");
+}
+.bg-pumpkin_muffin::before {
+  background-image: url("images/pumpkin_muffin.jpg");
+}
+.bg-sweet_potato_cheese::before {
+  background-image: url("images/sweet_potato_cheese.jpg");
+}
+.about-layout {
+  max-width: 800px;
+  margin: 120px auto 80px;
+  padding: 0 40px;
+  text-align: left;
+  background-color: #FDF1E6;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.about-layout h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4B1E0E;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-layout h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  color: #476A6F;
+  margin-top: 60px;
+  margin-bottom: 16px;
+}
+
+.about-layout p {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  color: #2A1F1E;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.about-layout .emphasis {
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  font-style: italic;
+  color: #4B1E0E;
+  text-align: center;
+  margin-bottom: 60px;
 }

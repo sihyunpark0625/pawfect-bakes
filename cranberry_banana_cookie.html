@@ -8,20 +8,22 @@
 </head>
 <body>
   <!-- 헤더 -->
-  <header>
-    <nav class="header-container">
-      <div class="nav-left">
-        <a href="index.html">Home</a>
-        <a href="recipes.html">Recipes</a>
-      </div>
-      <div class="logo">PAWFECT BAKES</div>
-      <div class="nav-right">
-        <button id="search-btn">Search</button>
-      </div>
-    </nav>
-  </header>
+<header>
+  <nav class="header-container">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="about.html">About</a> <!-- ✅ 추가 -->
+    </div>
+    <div class="logo">PAWFECT BAKES</div>
+    <div class="nav-right">
+      <button id="search-btn">Search</button>
+    </div>
+  </nav>
+</header>
 
-  <main class="recipes-layout recipe-detail bg-cranberry_cookie">
+
+  <main class="recipes-layout recipe-detail bg-cranberry_banana_cookie">
     <div class="recipes-header">
       <h1>Cranberry Banana Cookies</h1>
       <p>A fruity twist on dog cookies! Naturally sweet and full of antioxidants!</p>
@@ -57,7 +59,22 @@
       <div style="text-align: center; margin: 40px 0;">
         <a href="recipes.html" class="btn-outline">← Back to All Recipes</a>
       </div>
-    </section>
+
+<section class="rating-section">
+  <h2>My Rating ⭐</h2>
+  <div class="stars" id="star-rating">
+    <span data-value="1">☆</span>
+    <span data-value="2">☆</span>
+    <span data-value="3">☆</span>
+    <span data-value="4">☆</span>
+    <span data-value="5">☆</span>
+  </div>
+  <p id="rating-output" style="margin-top: 10px;"></p>
+</section>
+
+
   </main>
+  <script src="script.js"></script>
+
 </body>
 </html>

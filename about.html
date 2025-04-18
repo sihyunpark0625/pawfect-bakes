@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Pawfect Bakes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <nav class="header-container">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="logo">PAWFECT BAKES</div>
+    <div class="nav-right">
+      <button id="search-btn">Search</button>
+    </div>
+  </nav>
+</header>
+
+<main class="recipes-layout recipe-detail about-layout">
+  <section class="recipes-header">
+    <h1 class="section-main-title">About Pawfect Bakes</h1>
+    <p class="recipe-sub">Fueled by love for baking and dogs. A project that became something truly pawfect 🐾</p>
+  </section>
+
+  <section class="recipe-content">
+    <h2 class="section-title">Creator</h2>
+    <p><strong>Sihyun</strong> — Designer, Developer, World Cutest Dog Owner</p>
+
+    <h2 class="section-title">Why This Site?</h2>
+    <p>
+      As part of a university assignment, I built Pawfect Bakes.  
+      But I’d always wished there was a simple site that collected dog treat recipes.  
+      Since I love both dogs and baking — this felt like a natural fit!
+    </p>
+
+    <h2 class="section-title">Our Goal</h2>
+    <p>
+      To deliver simple, curated dog-friendly recipes.  
+      Just the info dog owners need — no extra fluff.
+    </p>
+
+    <h2 class="section-title">Special Thanks</h2>
+    <p>
+      <strong>Gomi</strong> (꼬미) — our unofficial co-founder and snack tester.  
+      Named after the Korean word 'Gom' for “bear”, she looks just like a little teddy 🧸
+    </p>
+    <p>
+      <a href="https://www.instagram.com/my_little_puppy_4ever/" target="_blank" class="btn-outline">
+        🐶 Follow Gomi on Instagram
+      </a>
+    </p>
+  </section>
+</main>
+
+<!-- 🔍 Search 팝업 -->
+<div id="overlay"></div>
+<div id="search-popup">
+  <h3>Search Recipes</h3>
+  <input type="text" id="search-input" placeholder="Enter a recipe name..." />
+  <button id="apply-search">Search</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

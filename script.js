@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const overlay = document.getElementById("overlay");
   const popup = document.getElementById("search-popup");
 
-  // ✅ 자동완성 영역 생성 추가
+
   const suggestionsBox = document.createElement("ul");
   suggestionsBox.id = "suggestions-box";
   suggestionsBox.style.listStyle = "none";
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   suggestionsBox.style.fontSize = "16px";
   suggestionsBox.style.position = "absolute";
   suggestionsBox.style.width = "100%";
-  suggestionsBox.style.display = "none"; // 기본은 숨김!
+  suggestionsBox.style.display = "none"; 
   searchInput.insertAdjacentElement("afterend", suggestionsBox);
 
   const MAX_INITIAL_DISPLAY = 6;
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ✅ 자동완성 추천 검색어 표시
+
   searchInput?.addEventListener("input", function () {
     const inputValue = this.value.toLowerCase();
     suggestionsBox.innerHTML = "";
@@ -169,8 +169,73 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 팝업 열기
+
 document.getElementById("search-btn").addEventListener("click", function () {
   document.getElementById("overlay").style.display = "block";
   document.getElementById("search-popup").style.display = "block";
+
+
+
+  const feedbackInput = document.getElementById("feedback-text");
+  const feedbackBtn = document.getElementById("submit-feedback");
+  const feedbackList = document.getElementById("feedback-list");
+
+  const pageId = window.location.pathname.split("/").pop().replace(".html", "");
+  const storageKey = `myFeedback_${pageId}`;
+  const saved = localStorage.getItem(storageKey);
+
+  if (saved && feedbackList) {
+    const li = document.createElement("li");
+    li.textContent = saved;
+    feedbackList.appendChild(li);
+  }
+
+  feedbackBtn?.addEventListener("click", () => {
+    const text = feedbackInput.value.trim();
+    if (text && feedbackList) {
+      localStorage.setItem(storageKey, text);
+      feedbackList.innerHTML = "";
+      const li = document.createElement("li");
+      li.textContent = text;
+      feedbackList.appendChild(li);
+      feedbackInput.value = "";
+    }
+  });
+
+
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const stars = document.querySelectorAll("#star-rating span");
+  const output = document.getElementById("rating-output");
+  const pageId = window.location.pathname.split("/").pop().replace(".html", "");
+  const ratingKey = `myRating_${pageId}`;
+
+  const savedRating = localStorage.getItem(ratingKey);
+  if (savedRating) {
+    updateStars(savedRating);
+    output.textContent = `You rated this recipe: ${savedRating} / 5 🐾`;
+  }
+
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      const rating = star.getAttribute("data-value");
+      localStorage.setItem(ratingKey, rating);
+      updateStars(rating);
+      output.textContent = `You rated this recipe: ${rating} / 5 🐾`;
+    });
+  });
+
+  function updateStars(rating) {
+    stars.forEach(star => {
+      const value = star.getAttribute("data-value");
+      if (value <= rating) {
+        star.textContent = "🐾";
+        star.classList.add("active");
+      } else {
+        star.textContent = "☆";
+        star.classList.remove("active");
+      }
+    });
+  }
+});
+
